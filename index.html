@@ -27,7 +27,7 @@
             <div class="cards__info">
               <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="cards__image">
             <div class="cards__item">
-              <p class="cards__description">Карачаевск</p>
+              <h2 class="cards__description">Карачаевск</h2>
               <button type="button" aria-label="like" class="cards__like"></button>
             </div>
             </div>
@@ -36,7 +36,7 @@
             <div class="cards__info">
               <img src="./images/Elbrus.jpg" alt="Эльбрус" class="cards__image">
             <div class="cards__item">
-              <p class="cards__description">Гора Эльбрус</p>
+              <h2 class="cards__description">Гора Эльбрус</h2>
               <button type="button" aria-label="like" class="cards__like"></button>
             </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="cards__info">
               <img src="./images/Dombay.jpg" alt="Домбай" class="cards__image">
             <div class="cards__item">
-              <p class="cards__description">Домбай</p>
+              <h2 class="cards__description">Домбай</h2>
               <button type="button" aria-label="like" class="cards__like"></button>
             </div>
             </div>
@@ -54,7 +54,7 @@
             <div class="cards__info">
               <img src="./images/Elbrus.jpg" alt="Эльбрус" class="cards__image">
             <div class="cards__item">
-              <p class="cards__description">Гора Эльбрус</p>
+              <h2 class="cards__description">Гора Эльбрус</h2>
               <button type="button" aria-label="like" class="cards__like"></button>
             </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="cards__info">
               <img src="./images/Dombay.jpg" alt="Домбай" class="cards__image">
             <div class="cards__item">
-              <p class="cards__description">Домбай</p>
+              <h2 class="cards__description">Домбай</h2>
               <button type="button" aria-label="like" class="cards__like"></button>
             </div>
             </div>
@@ -72,7 +72,7 @@
             <div class="cards__info">
               <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="cards__image">
             <div class="cards__item">
-              <p class="cards__description">Карачаево-Черкесия</p>
+              <h2 class="cards__description">Карачаево-Черкесия</h2>
               <button type="button" aria-label="like" class="cards__like"></button>
             </div>
             </div> 
@@ -80,25 +80,21 @@
          </ul>
       </section>
     </main>
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
         <button class="popup__close" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="profile">
-          <label>
-            <input class="popup__name" type="text" value="Жак-Ив Кусто" name="username" placeholder="Ваше имя">
-          </label>
-          <label>
-            <input class="popup__description" value="Исследователь океана" type="text" name="description" placeholder=" Род деятельности">
-          </label>
-          <button type="submit" class="popup__submit" aria-label="save"><span class="popup__span-accent">Сохранить</span></button>
+            <input class="popup__edit popup__edit_input_name" type="text" value="Жак-Ив Кусто" name="username" placeholder="Ваше имя">
+            <input class="popup__edit popup__edit_input_description" value="Исследователь океана" type="text" name="description" placeholder=" Род деятельности">
+          <button type="submit" class="popup__submit" aria-label="save">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023 Никита Потриваев</p>
     </footer>
   </div>
-  <script src="./script/index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
     width: 24px;
     height: 24px;
     border: 1px solid #FFF;
-    background-color: #000000;
+    background-color: transparent;
     align-self: flex-end;
     background-image: url(../../../images/pencil.svg);
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 320px) and (max-width: 700px) {
+@media screen and (max-width: 700px) {
     .profile__info-edit {
         width: 18px;
         height: 18px;
