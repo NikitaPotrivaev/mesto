@@ -5,7 +5,7 @@
 
 [Проект "Mesto"](https://nikitapotrivaev.github.io/mesto/)
 
-#####Технологии
+##### Технологии
 - HTML;
 - CSS;
 - JavaScript;
