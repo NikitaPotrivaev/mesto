@@ -1,0 +1,26 @@
+.profile__info-add {
+    border: 2px solid #FFFFFF;
+    background-color: #000000;
+    background-position: 50% 50%;
+    background-image: url(../../../images/cross.svg);
+    background-repeat: no-repeat;
+    border-radius: 2px;
+    margin-left: auto;
+    align-self: center;
+    width: 150px;
+    height: 50px;
+    transition: all 0.2s linear;
+}
+
+.profile__info-add:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 700px) {
+    .profile__info-add {
+        margin-top: 36px;
+        width: 100%;
+        background-size: 16px;
+    }
+}

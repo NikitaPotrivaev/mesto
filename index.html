@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="content">
+  <div class="page">
+    <header class="header">
+      <img src="./images/logo.svg" alt="Место" class="header__logo">
+    </header>
+    <main>
+      <section class="profile">
+        <img src="./images/Jacques-Yves-Cousteau.jpg" alt="Аватар профиля" class="profile__avatar">
+        <div class="profile__info">
+          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+          <button class="profile__info-edit" type="button" aria-label="edit"></button>
+          <p class="profile__info-hobby">Исследователь океана</p>
+        </div>
+        <button class="profile__info-add" type="button" aria-label="add"></button>
+      </section>
+      <section class="cards">
+         <ul class="cards__list">
+          <li>
+            <div class="cards__info">
+              <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="card__image">
+            <div class="cards__item">
+              <p class="card__description">Карачаевск</p>
+              <button type="button" aria-label="like" class="cards__like"></button>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="cards__info">
+              <img src="./images/Elbrus.jpg" alt="Эльбрус" class="card__image">
+            <div class="cards__item">
+              <p class="card__description">Гора Эльбрус</p>
+              <button type="button" aria-label="like" class="cards__like"></button>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="cards__info">
+              <img src="./images/Dombay.jpg" alt="Домбай" class="card__image">
+            <div class="cards__item">
+              <p class="card__description">Домбай</p>
+              <button type="button" aria-label="like" class="cards__like"></button>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="cards__info">
+              <img src="./images/Elbrus.jpg" alt="Эльбрус" class="card__image">
+            <div class="cards__item">
+              <p class="card__description">Гора Эльбрус</p>
+              <button type="button" aria-label="like" class="cards__like"></button>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="cards__info">
+              <img src="./images/Dombay.jpg" alt="Домбай" class="card__image">
+            <div class="cards__item">
+              <p class="card__description">Домбай</p>
+              <button type="button" aria-label="like" class="cards__like"></button>
+            </div>
+            </div>
+          </li>
+          <li>
+            <div class="cards__info">
+              <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="card__image">
+            <div class="cards__item">
+              <p class="card__description">Карачаево-Черкесия</p>
+              <button type="button" aria-label="like" class="cards__like"></button>
+            </div>
+            </div> 
+          </li>
+         </ul>
+      </section>
+    </main>
+    <section class="popup">
+      <div class="popup__container">
+        <button class="popup__close" type="button" aria-label="Закрыть"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form" name="profile">
+          <label>
+            <input class="popup__name" type="text" value="Жак-Ив Кусто" name="username" placeholder="Ваше имя">
+          </label>
+          <label>
+            <input class="popup__description" value="Исследователь океана" type="text" name="description" placeholder=" Род деятельности">
+          </label>
+          <button type="submit" class="popup__submit" aria-label="save"><span class="popup__span-accent">Сохранить</span></button>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Никита Потриваев</p>
+    </footer>
+  </div>
+  <script src="./script/index.js"></script>
+</body>
+</html>
