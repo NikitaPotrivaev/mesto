@@ -1,4 +1,4 @@
-.profile__info-add {
+.profile__add-mesto {
     border: 2px solid #FFFFFF;
     border-radius: 2px;
     background-color: transparent;
@@ -12,13 +12,13 @@
     transition: all 0.2s linear;
 }
 
-.profile__info-add:hover {
+.profile__add-mesto:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {
-    .profile__info-add {
+    .profile__add-mesto {
         margin-top: 36px;
         width: 100%;
         background-size: 16px;

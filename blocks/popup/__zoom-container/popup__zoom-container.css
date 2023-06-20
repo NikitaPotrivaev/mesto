@@ -1,0 +1,7 @@
+.popup__zoom-container {
+    position: relative;
+    width: 75vw;
+    height: 75vh;
+    box-sizing: border-box;
+    margin: 0;
+}
