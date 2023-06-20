@@ -1,7 +1,13 @@
 .cards__image {
-    max-width: 282px;
+    width: 282px;
     height: 282px;
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    transition: all 0.2s linear;
+}
+
+.cards__image:hover {
+    opacity: .8;
+    cursor: pointer;
 }
