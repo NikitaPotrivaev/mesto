@@ -38,8 +38,8 @@ const profileHobby = document.querySelector('.profile__info-hobby'); //Деят�
 const popupCardOpenButton = document.querySelector('.profile__add-mesto'); //Кнопка добавления места
 
 const cardsPopup = document.querySelector('#cards-popup'); //Попап карточек
-const formElementMesto = cardsPopup.querySelector('.popup__form');
-const cardsButtonSubmit = cardsPopup.querySelector('.popup__submit');
+const formElementMesto = cardsPopup.querySelector('.popup__form'); //Форма попапа карточек
+const cardsButtonSubmit = cardsPopup.querySelector('.popup__submit'); //Сабмит карточек
 const popupCardsCloseButton = cardsPopup.querySelector('.popup__close'); //Закрытие попапа карточек
 const cardsList = document.querySelector('.cards__list'); //Секция карточек
 
@@ -57,6 +57,7 @@ const openPopup = (popup) => {
 }
 
 const openProfile = () => {
+  defaultForm(profilePopup, config);
   nameInput.value = profileName.textContent;
   jobInput.value = profileHobby.textContent;
   openPopup(profilePopup);
@@ -71,7 +72,10 @@ const submitProfileForm = (evt) => {
 }
 formProfileElement.addEventListener('submit', submitProfileForm);
 
-popupCardOpenButton.addEventListener('click', () => openPopup(cardsPopup));
+popupCardOpenButton.addEventListener('click', () => {
+  defaultForm(cardsPopup, config);
+  openPopup(cardsPopup);
+});
 
 popupCardsCloseButton.addEventListener('click', () => closePopup(cardsPopup));
 

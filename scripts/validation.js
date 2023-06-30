@@ -29,19 +29,15 @@ const checkValidity = (formElement, inputElement, config) => {
   }
 };
 
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-};
+const hasInvalidInput = (inputList) => Array.from(inputList).some((inputElement) => !inputElement.validity.valid);
 
 const toggleButtonState = (inputList, buttonElement) => {
   if(hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__submit_inactive');
     buttonElement.disabled = true;
+    buttonElement.classList.add('popup__submit_inactive');
   } else {
-    buttonElement.classList.remove('popup__submit_inactive');
     buttonElement.disabled = false;
+    buttonElement.classList.remove('popup__submit_inactive');
   }
 };
 
@@ -56,6 +52,18 @@ const setEventListeners = (formElement, config) => {
     });
   });
 }; 
+
+function defaultForm(everyPopup, config) {
+  const inputList = Array.from(everyPopup.querySelectorAll(config.inputSelector));
+  const formElement = everyPopup.querySelector(config.formSelector);
+  const buttonElement = everyPopup.querySelector(config.submitButtonSelector);
+  inputList.forEach((inputElement) => {
+     inputElement.value = '';
+     hideError(formElement, inputElement, config);
+     toggleButtonState(inputList, buttonElement, formElement, config);
+  });
+  buttonElement.disabled = true;
+};
 
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
