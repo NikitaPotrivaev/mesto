@@ -9,15 +9,15 @@ const config = {
 
 const showError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
-  inputElement.classList.add('popup__edit_input_error');
+  inputElement.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('popup__error_active');
+  errorElement.classList.add(config.errorClass);
 };
 
 const hideError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
-  inputElement.classList.remove('popup__edit_input_error');
-  errorElement.classList.remove('popup__error_active');
+  inputElement.classList.remove(config.inputErrorClass);
+  errorElement.classList.remove(config.errorClass);
   errorElement.textContent = '';
 };
 
@@ -34,10 +34,10 @@ const hasInvalidInput = (inputList) => Array.from(inputList).some((inputElement)
 const toggleButtonState = (inputList, buttonElement) => {
   if(hasInvalidInput(inputList)) {
     buttonElement.disabled = true;
-    buttonElement.classList.add('popup__submit_inactive');
+    buttonElement.classList.add(config.inactiveButtonClass);
   } else {
     buttonElement.disabled = false;
-    buttonElement.classList.remove('popup__submit_inactive');
+    buttonElement.classList.remove(config.inactiveButtonClass);
   }
 };
 
@@ -52,18 +52,6 @@ const setEventListeners = (formElement, config) => {
     });
   });
 }; 
-
-function defaultForm(everyPopup, config) {
-  const inputList = Array.from(everyPopup.querySelectorAll(config.inputSelector));
-  const formElement = everyPopup.querySelector(config.formSelector);
-  const buttonElement = everyPopup.querySelector(config.submitButtonSelector);
-  inputList.forEach((inputElement) => {
-     inputElement.value = '';
-     hideError(formElement, inputElement, config);
-     toggleButtonState(inputList, buttonElement, formElement, config);
-  });
-  buttonElement.disabled = true;
-};
 
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
