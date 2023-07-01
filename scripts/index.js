@@ -64,7 +64,7 @@ everyPopupCloseButton.forEach((icon) => {
     const zoomImage = () => {
       popupImageDescription.textContent = name;
       imageZoom.src = link;
-      cardsImage.alt = name;
+      imageZoom.alt = name;
       openPopup(popupImage);
     }
     cardsImage.addEventListener('click', zoomImage);
