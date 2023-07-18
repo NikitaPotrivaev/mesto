@@ -61,14 +61,14 @@ everyPopupCloseButton.forEach((icon) => {
   icon.addEventListener('click', () => closePopup(popupIcon));
 });
 
-const newCard = () => {
-cardsList.prepend(new Card({
-  name: nameCardsInput.value, 
-  link: descriptionCardsInput.value}, '#template').renderCard());
-closePopup(cardsPopup);
-
-initialCards.forEach(function (element){
-  cardsList.append(new Card(element, '#template').renderCard());
-});
-}
-formElementMesto.addEventListener('submit', newCard);
+const createCard = () => {
+  cardsList.prepend(new Card({
+    name: nameCardsInput.value, 
+    link: descriptionCardsInput.value}, '#template').renderCard());
+  closePopup(cardsPopup);
+  }
+  formElementMesto.addEventListener('submit', createCard);
+  
+  initialCards.forEach(function (element){
+    cardsList.append(new Card(element, '#template').renderCard());
+  });
