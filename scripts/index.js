@@ -4,37 +4,39 @@ import { everyPopup, everyPopupCloseButton, profilePopup, formProfileElement, na
          profileHobby, popupCardOpenButton, cardsPopup, formElementMesto, cardsList, nameCardsInput, descriptionCardsInput, config } from "./constants.js";
 import { Card } from "./Card.js";
 
+const formProfileElementValidator = new FormValidator(config, formProfileElement);
+const formElementMestoValidator = new FormValidator(config, formElementMesto);
+
+formProfileElementValidator.enableValidation();
+formElementMestoValidator.enableValidation();
+
 export const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener('keydown', handleByEscape);
 }
 
 const openProfile = () => {
-  const formProfileElementValidator = new FormValidator(config, formProfileElement);
-  formProfileElementValidator.defaultForm();
+  formProfileElementValidator.clearForm();
   nameInput.value = profileName.textContent;
   jobInput.value = profileHobby.textContent;
-  formProfileElementValidator.enableValidation();
   openPopup(profilePopup);
 }
 popupProfileOpenButton.addEventListener('click', openProfile);
 
 const submitProfileForm = (evt) => {
-    evt.preventDefault();
-        profileName.textContent = nameInput.value;
-        profileHobby.textContent = jobInput.value;
-        closePopup(profilePopup);
+  evt.preventDefault();
+    profileName.textContent = nameInput.value;
+    profileHobby.textContent = jobInput.value;
+    closePopup(profilePopup);
 }
 formProfileElement.addEventListener('submit', submitProfileForm);
 
 popupCardOpenButton.addEventListener('click', () => {
-  const formElementMestoValidator = new FormValidator(config, formElementMesto);
-  formElementMestoValidator.defaultForm();
-  formElementMestoValidator.enableValidation();
+  formElementMestoValidator.clearForm();
   openPopup(cardsPopup);
 });
 
-const closeByEscape = (evt) => {
+const handleByEscape = (evt) => {
   if (evt.key === 'Escape') {
     const openPopups = document.querySelector('.popup_opened');
     closePopup(openPopups);
@@ -51,7 +53,7 @@ everyPopup.forEach((popupForm) => {
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeByEscape);
+  document.removeEventListener('keydown', handleByEscape);
 }
 
 everyPopupCloseButton.forEach((icon) => {
@@ -59,18 +61,14 @@ everyPopupCloseButton.forEach((icon) => {
   icon.addEventListener('click', () => closePopup(popupIcon));
 });
 
-  const newCard = (e) => {
-    e.preventDefault();
-    cardsList.prepend(new Card({
-      name: nameCardsInput.value, 
-      link: descriptionCardsInput.value}, '#template').renderCard());
-    closePopup(cardsPopup);
-  }
-  formElementMesto.addEventListener('submit', newCard);
+const newCard = () => {
+cardsList.prepend(new Card({
+  name: nameCardsInput.value, 
+  link: descriptionCardsInput.value}, '#template').renderCard());
+closePopup(cardsPopup);
 
-  const createCards = () => {
-    initialCards.forEach(function (element){
-      cardsList.append(new Card(element, '#template').renderCard());
-    });
-  }
-  createCards();
+initialCards.forEach(function (element){
+  cardsList.append(new Card(element, '#template').renderCard());
+});
+}
+formElementMesto.addEventListener('submit', newCard);

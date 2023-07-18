@@ -22,7 +22,6 @@ export const popupImageDescription = popupImage.querySelector('.popup__descripti
 export const imageZoom = popupImage.querySelector('.popup__image'); //Увеличение картинки при клике
 
 export const config = {  
-    formSelector: '.popup__form',
     inputSelector: '.popup__edit',
     submitButtonSelector: '.popup__submit',
     inactiveButtonClass: 'popup__submit_inactive',
