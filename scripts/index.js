@@ -15,21 +15,19 @@ export const openPopup = (popup) => {
   document.addEventListener('keydown', handleByEscape);
 }
 
-const openProfile = () => {
+popupProfileOpenButton.addEventListener('click', () => {
   formProfileElementValidator.clearForm();
   nameInput.value = profileName.textContent;
   jobInput.value = profileHobby.textContent;
   openPopup(profilePopup);
-}
-popupProfileOpenButton.addEventListener('click', openProfile);
+});
 
-const submitProfileForm = (evt) => {
+formProfileElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileHobby.textContent = jobInput.value;
     closePopup(profilePopup);
-}
-formProfileElement.addEventListener('submit', submitProfileForm);
+});
 
 popupCardOpenButton.addEventListener('click', () => {
   formElementMestoValidator.clearForm();
