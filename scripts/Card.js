@@ -32,6 +32,7 @@ export class Card {
       
     _deleteCards() {
         this._cardsTemplate.remove();
+        this._cardsTemplate = null;
     }
       
     _likeCards(evt) {
