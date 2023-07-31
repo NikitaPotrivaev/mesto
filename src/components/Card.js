@@ -1,11 +1,9 @@
-import { openPopup } from "./index.js";
-import { popupImage, popupImageDescription, imageZoom } from "./constants.js";
-
 export class Card {
-    constructor(element, templateSelector) {
+    constructor(element, templateSelector, handleCardClick) {
         this._name = element.name;
         this._link = element.link;
         this._template = templateSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     renderCard() {
@@ -23,13 +21,6 @@ export class Card {
         return this._cardsTemplate;
     }
       
-    _zoomImage() {
-        popupImageDescription.textContent = this._name;
-        imageZoom.src = this._link;
-        imageZoom.alt = this._name;
-        openPopup(popupImage);
-    }
-      
     _deleteCards() {
         this._cardsTemplate.remove();
         this._cardsTemplate = null;
@@ -40,7 +31,7 @@ export class Card {
     }
       
     _setEventListeners() {
-        this._cardsImage.addEventListener('click', () => this._zoomImage());
+        this._cardsImage.addEventListener('click', () => this._handleCardClick(this._name, this._link));
         this._cardsDelete.addEventListener('click', () => this._deleteCards());
         this._cardsLike.addEventListener('click', (evt) => this._likeCards(evt));
     }

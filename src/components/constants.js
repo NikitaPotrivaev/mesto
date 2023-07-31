@@ -1,4 +1,3 @@
-export const everyPopup = document.querySelectorAll('.popup'); //Все попапы
 export const everyPopupCloseButton = document.querySelectorAll('.popup__close'); //Иконка закрытия всех попапов
 export const profilePopup = document.querySelector('#profile-popup'); //Попап профиля
 export const formProfileElement = profilePopup.querySelector('.popup__form'); //Форма
@@ -18,8 +17,6 @@ export const nameCardsInput = cardsPopup.querySelector('.popup__edit_input_name'
 export const descriptionCardsInput = cardsPopup.querySelector('.popup__edit_input_description'); //Инпут ссылки изображения карточки
 
 export const popupImage = document.querySelector('#image-popup'); //Попап картинки
-export const popupImageDescription = popupImage.querySelector('.popup__description'); //Попап описания
-export const imageZoom = popupImage.querySelector('.popup__image'); //Увеличение картинки при клике
 
 export const config = {  
     inputSelector: '.popup__edit',

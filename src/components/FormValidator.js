@@ -63,7 +63,6 @@ export class FormValidator {
        this._hideError(inputElement);
        this._toggleButtonState();
     });
-    this._buttonElement.disabled = true;
   };
 
   enableValidation() {
