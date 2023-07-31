@@ -53,7 +53,7 @@ const createCard = (cardData) => {
 }
 
 const createInitialCards = new Section({
-  data: initialCards,
+  items: initialCards,
   renderer: (cardData) => {
     createInitialCards.setItem(createCard(cardData));
   }
