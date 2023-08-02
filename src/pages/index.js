@@ -1,13 +1,12 @@
 import { FormValidator } from "../components/FormValidator.js";
-import { initialCards } from "../components/initialCards.js";
+import { initialCards, config } from "../utils/constants.js";
 import { Section } from "../components/Section.js";
-import { profilePopup, formProfileElement, nameInput, jobInput, popupProfileOpenButton, profileName,
-         profileHobby, popupCardOpenButton, cardsPopup, formElementMesto, cardsList, nameCardsInput, descriptionCardsInput, config, popupImage } from "../components/constants.js";
+import { formProfileElement, nameInput, jobInput, popupProfileOpenButton, popupCardOpenButton, formElementMesto} from "../components/elements.js";
 import { Card } from "../components/Card.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
-import "./index.css";
+import "../pages/index.css";
 
 const formProfileElementValidator = new FormValidator(config, formProfileElement);
 const formElementMestoValidator = new FormValidator(config, formElementMesto);
@@ -16,15 +15,15 @@ formProfileElementValidator.enableValidation();
 formElementMestoValidator.enableValidation();
 
 const userInfo = new UserInfo({ 
-  nameInfo: profileName,
-  descriptionInfo: profileHobby
+  nameInfo: '.profile__info-name',
+  descriptionInfo: '.profile__info-hobby'
 });
 
-const popupEditProfile = new PopupWithForm(profilePopup,
-(data) => {
+const popupEditProfile = new PopupWithForm('#profile-popup', {
+  submitForm: (data) => {
     userInfo.setUserInfo(data);
     popupEditProfile.close();
-  });
+  }});
 popupEditProfile.setEventListeners()
 
 popupProfileOpenButton.addEventListener('click', () => {
@@ -40,7 +39,7 @@ popupCardOpenButton.addEventListener('click', () => {
   addCard.open();
 })
 
-const zoomImage = new PopupWithImage(popupImage);
+const zoomImage = new PopupWithImage('#image-popup');
 zoomImage.setEventListeners();
 
 const handleCardClick = (name, link) => {
@@ -57,16 +56,16 @@ const createInitialCards = new Section({
   renderer: (cardData) => {
     createInitialCards.setItem(createCard(cardData));
   }
-}, cardsList);
+}, '.cards__list');
 createInitialCards.renderItems();
 
-const addCard = new PopupWithForm(cardsPopup, 
-  () => {
+const addCard = new PopupWithForm('#cards-popup', {
+  submitForm: (cardData) => {
     createInitialCards.addItem(createCard({
-      name: nameCardsInput.value,
-      link: descriptionCardsInput.value
+      name: cardData.cards,
+      link: cardData.link
     }));
     addCard.close();
   }
-)
+});
 addCard.setEventListeners();

@@ -21,18 +21,18 @@ export class Card {
         return this._cardsTemplate;
     }
       
-    _deleteCards() {
+    _deleteCard() {
         this._cardsTemplate.remove();
         this._cardsTemplate = null;
     }
       
-    _likeCards(evt) {
+    _likeCard(evt) {
         evt.target.classList.toggle('cards__like_active');
     }
       
     _setEventListeners() {
         this._cardsImage.addEventListener('click', () => this._handleCardClick(this._name, this._link));
-        this._cardsDelete.addEventListener('click', () => this._deleteCards());
-        this._cardsLike.addEventListener('click', (evt) => this._likeCards(evt));
+        this._cardsDelete.addEventListener('click', () => this._deleteCard());
+        this._cardsLike.addEventListener('click', (evt) => this._likeCard(evt));
     }
 }
