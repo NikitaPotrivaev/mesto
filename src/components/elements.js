@@ -1,4 +1,4 @@
-const profilePopup = document.querySelector('#profile-popup');
+export const profilePopup = document.querySelector('#profile-popup');
 export const formProfileElement = profilePopup.querySelector('.popup__form'); //Форма
 export const nameInput = profilePopup.querySelector('.popup__edit_input_name'); //Инпут имени
 export const jobInput = profilePopup.querySelector('.popup__edit_input_description'); // Инпут деятельности
@@ -6,5 +6,9 @@ export const jobInput = profilePopup.querySelector('.popup__edit_input_descripti
 export const popupProfileOpenButton = document.querySelector('.profile__info-edit'); //Кнопка редактировать профиль
 export const popupCardOpenButton = document.querySelector('.profile__add-mesto'); //Кнопка добавления места
 
-const cardsPopup = document.querySelector('#cards-popup');
+export const cardsPopup = document.querySelector('#cards-popup');
 export const formElementMesto = cardsPopup.querySelector('.popup__form'); //Форма попапа карточек
+
+export const popupAvatarOpenButton = document.querySelector('.profile__avatar-edit');
+export const avatarPopup = document.querySelector('#avatar');
+export const formAvatarElement = avatarPopup.querySelector('.popup__form');
