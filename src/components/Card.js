@@ -26,21 +26,21 @@ export class Card {
         this.renderLikes(this._likes);
         this._setEventListeners();
 
-       /* if (this._userId = this._ownerId) {
-            this._cardsDelete.style.display = 'none'
-        } */
+        if (this._ownerId !== this._userId) {
+            this._cardsDelete.remove();
+        }
       
         return this._cardsTemplate;
     }
 
     deleteCard() {
-        this._cardsTemplate.remove();
-        this._cardsTemplate = null;
+        this._cardsTemplate.remove()
+        this._cardsTemplate = null
     }
 
     isLike() {
-        return this._likes.find(userLike => userLike._id === this._userId);
-    }
+        return this._likes.find(user => user._id === this._userId)
+     }
 
     renderLikes(cardLikes) {
         this._likes = cardLikes
@@ -50,7 +50,7 @@ export class Card {
             this._likeCounterZone.textContent = '';
         }
 
-        if (this.isLike()) {
+        if (this.isLike) {
             this._cardsLike.classList.toggle('card__like_active');
         } else {
             this._cardsLike.classList.remove('card__like_active');

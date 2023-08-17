@@ -31,6 +31,7 @@ let userId;
 Promise.all([ api.getProfileData(), api.getInitialCards() ])
   .then(([profileData, cardData]) => {
     userInfo.setAvatar(profileData.avatar)
+    userId = profileData._id
     userInfo.setUserInfo({ 
       name: profileData.name,
       description: profileData.about,
@@ -45,9 +46,9 @@ Promise.all([ api.getProfileData(), api.getInitialCards() ])
         ownerId: data.owner._id
       }
       createInitialCards.setItem(createCard(element))
-     })
+    })
   })
-  .catch((err) => console.log(`Возникла глобальная ошибка, ${err}`))
+.catch((err) => console.log(`Возникла глобальная ошибка, ${err}`))
 
 const userInfo = new UserInfo({ 
   nameInfo: '.profile__info-name',
@@ -118,7 +119,7 @@ const createCard = (cardData) => {
     confirmDelete.callbackWarning(() => {
       api.deleteCard(cardId)
         .then(() => {
-          //card.deleteCard()
+          card.deleteCard()
           confirmDelete.close()
         })
         .catch(err => console.log(`Ошибка удаления карточки: ${err}`))
