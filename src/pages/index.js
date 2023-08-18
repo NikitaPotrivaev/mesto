@@ -26,7 +26,7 @@ const api = new Api({
   }
 });
 
-let userId;
+let userId = null;
 
 Promise.all([ api.getProfileData(), api.getInitialCards() ])
   .then(([profileData, cardData]) => {
@@ -36,8 +36,8 @@ Promise.all([ api.getProfileData(), api.getInitialCards() ])
       name: profileData.name,
       description: profileData.about,
      })
-     cardData.forEach(data => {
-      const element = {
+    cardData.forEach(data => {
+     const element = {
         name: data.name,
         link: data.link,
         likes: data.likes,
@@ -106,36 +106,36 @@ popupAvatarOpenButton.addEventListener('click', () => {
 const zoomImage = new PopupWithImage('#image-popup');
 zoomImage.setEventListeners();
 
-const confirmDelete = new WarningPopup('#delete')
+const confirmDelete = new WarningPopup("#delete")
 confirmDelete.setEventListeners();
-
+  
 const createCard = (cardData) => {
   const card = new Card(cardData, '#template', 
   (name, link) => {
     zoomImage.open(name, link)
   },
-  (cardId) => {
+  (instance) => {
     confirmDelete.open()
     confirmDelete.callbackWarning(() => {
-      api.deleteCard(cardId)
+      api.deleteCard(instance.getCardId())
         .then(() => {
-          card.deleteCard()
+          instance.deleteCard()
           confirmDelete.close()
         })
         .catch(err => console.log(`Ошибка удаления карточки: ${err}`))
     })
   },
-  (cardId) => {
-    if (card.isLike()) {
-      api.deleteLike(cardId)
+  (instance) => {
+    if (instance.isLiked()) {
+      api.deleteLike(instance.getCardId())
         .then(res => {
-          card.renderLikes(res.likes)
+          instance.renderLikes(res.likes)
         })
         .catch(err => console.log(`Ошибка связи с сервером: ${err}`))
     } else {
-      api.addLike(cardId)
+      api.addLike(instance.getCardId())
         .then(res => {
-          card.renderLikes(res.likes)
+          instance.renderLikes(res.likes)
         })
         .catch(err => console.log(`Ошибка связи с сервером: ${err}`))
     }
