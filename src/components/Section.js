@@ -11,8 +11,4 @@ export class Section {
   addItem(item) {
     this._container.prepend(item);
   }
-
-  renderItems(cardData) {
-    cardData.forEach(this._renderer);
-  }
 }

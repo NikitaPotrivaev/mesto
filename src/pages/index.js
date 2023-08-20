@@ -36,7 +36,17 @@ Promise.all([ api.getProfileData(), api.getInitialCards() ])
       name: profileData.name,
       description: profileData.about,
      })
-    createInitialCards.renderItems(cardData)
+    cardData.forEach(data => {
+     const element = {
+        name: data.name,
+        link: data.link,
+        likes: data.likes,
+        cardId: data._id,
+        userId: userId,
+        ownerId: data.owner._id
+      }
+      cardsList.setItem(createCard(element))
+    })
   })
 .catch((err) => console.log(`Возникла глобальная ошибка, ${err}`))
 
@@ -134,9 +144,9 @@ const createCard = (cardData) => {
   return card;
 }
 
-const createInitialCards = new Section({
+const cardsList = new Section({
   renderer: (cardData) => {
-    createInitialCards.setItem(createCard(cardData));
+    cardsList.setItem(createCard(cardData));
   }
 }, '.cards__list');
 
@@ -158,7 +168,7 @@ const popupAddCard = new PopupWithForm('#cards-popup', {
           userId: userId,
           ownerId: res.owner._id
         }
-        createInitialCards.addItem(createCard(element));
+        cardsList.addItem(createCard(element));
         popupAddCard.close();
       })
       .catch(err => console.log(`Ошибка загрузки: ${err}`))
