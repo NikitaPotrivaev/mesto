@@ -1,6 +1,6 @@
 # Проект: Место
 
-  <img src="./images/calc.png">
+<img src="./src/images/mesto.gif">
 
 ---
 ### Обзор:
