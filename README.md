@@ -1,8 +1,6 @@
 # Проект: Место
 
-<div id="header"align="center">
   <img src="./images/calc.png">
-</div>
 
 ---
 ### Обзор:
